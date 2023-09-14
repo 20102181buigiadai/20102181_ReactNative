@@ -13,22 +13,22 @@
 var data = [
   {
     Mark: {
-      height: 78,
-      mass: 1.69,
+      mass: 78,
+      height: 1.69,
     },
     John: {
-      height: 92,
-      mass: 1.95,
+      mass: 92,
+      height: 1.95,
     },
   },
   {
     Mark: {
-      height: 95,
-      mass: 1.88,
+      mass: 95,
+      height: 1.88,
     },
     John: {
-      height: 85,
-      mass: 1.76,
+      mass: 85,
+      height: 1.76,
     },
   },
 ];
