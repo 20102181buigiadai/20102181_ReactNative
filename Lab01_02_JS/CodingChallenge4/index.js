@@ -1,45 +1,26 @@
-// CAU 1
-console.log("Thử thách viết mã số 1")
-    // data
-var data = [{
-    "Mark": {
-        chieuCao: 78,
-        khoiLuong: 1.69,
-    },
-    "John": {
-        chieuCao: 92,
-        khoiLuong: 1.95,
-    }
-}, {
-    "Mark": {
-        chieuCao: 95,
-        khoiLuong: 1.88,
-    },
-    "John": {
-        chieuCao: 85,
-        khoiLuong: 1.76,
-    }
-}]
-console.log("data: " + data.toString);
+// Coding Challenge #4
+// Steven wants to build a very simple tip calculator for whenever he goes eating in a restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and 300. If the value is different, the tip is 20%.
+// Your tasks:
+// 1. Calculate the tip, depending on the bill value. Create a variable called 'tip' for this. It's not allowed to use an if/else statement (If it's easier for you, you can start with an if/else statement, and then try to convert it to a ternary operator!)2. Print a string to the console containing the bill value, the tip, and the final value (bill + tip). Example: “The bill was 275, the tip was 41.25, and the total value 316.25”
+// Test data:
+// § Data 1: Test for bill values 275, 40 and 430
+// Hints:
+// § To calculate 20% of a value, simply multiply it by 20/100 = 0.2
+// § Value X is between 50 and 300, if it's >= 50 && <= 300
 
-// function
-function tinhBMI(chieuCao, khoiLuong) {
-    return khoiLuong / (chieuCao * chieuCao); // return khoiLuong/(chieuCao^2)
+// Dữ liệu kiểm tra
+var billValues = [275, 40, 430]
+
+// Hàm tính tiền tip
+function calculateTip (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2
 }
 
-function tinhmarkHigherBMI(data) {
-    var Mark = tinhBMI(data.Mark.chieuCao, data.Mark.khoiLuong)
-    var John = tinhBMI(data.John.chieuCao, data.John.khoiLuong)
-    return Mark > John //  Mark có chỉ số BMI cao hơn John hay không.
-}
-var markHigherBMI = tinhmarkHigherBMI(data[0]);
-console.log(markHigherBMI)
-markHigherBMI = tinhmarkHigherBMI(data[1]);
-console.log(markHigherBMI)
-
-////////////////////////////////////////////////
-// CAU2
-console.log("Thử thách viết mã số 2")
-data.forEach((value) => {
-    tinhmarkHigherBMI(value) ? console.log("Chỉ số BMI của Mark cao hơn John!") : console.log("Chỉ số BMI của John cao hơn Mark!")
+// Kiểm tra từng giá trị hóa đơn
+billValues.forEach(function (bill) {
+  var tip = calculateTip(bill)
+  var totalValue = bill + tip
+  console.log(
+    `The bill was ${bill}, the tip was ${tip}, and the total value ${totalValue}`
+  )
 })
