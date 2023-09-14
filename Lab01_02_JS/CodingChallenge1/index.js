@@ -1,45 +1,51 @@
-// CAU 1
-console.log("Thử thách viết mã số 1")
-    // data
-var data = [{
-    "Mark": {
-        chieuCao: 78,
-        khoiLuong: 1.69,
+// Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula:
+// BMI = mass / height ** 2 = mass / (height * height) (mass in kg and height in meter).
+
+// Your tasks:
+// 1. Store Mark's and John's mass and height in variables
+// 2. Calculate both their BMIs using the formula (you can even implement both versions)
+// 3. Create a Boolean variable 'markHigherBMI' containing information about whether Mark has a higher BMI than John.
+
+// Test data:
+// § Data 1: Marks height 78 kg and is 1.69 m tall. John height 92 kg and is 1.95 m tall.
+// § Data 2: Marks height 95 kg and is 1.88 m tall. John height 85 kg and is 1.76 m tall
+
+var data = [
+  {
+    Mark: {
+      height: 78,
+      mass: 1.69,
     },
-    "John": {
-        chieuCao: 92,
-        khoiLuong: 1.95,
-    }
-}, {
-    "Mark": {
-        chieuCao: 95,
-        khoiLuong: 1.88,
+    John: {
+      height: 92,
+      mass: 1.95,
     },
-    "John": {
-        chieuCao: 85,
-        khoiLuong: 1.76,
-    }
-}]
-console.log("data: " + data.toString);
+  },
+  {
+    Mark: {
+      height: 95,
+      mass: 1.88,
+    },
+    John: {
+      height: 85,
+      mass: 1.76,
+    },
+  },
+];
 
 // function
-function tinhBMI(chieuCao, khoiLuong) {
-    return khoiLuong / (chieuCao * chieuCao); // return khoiLuong/(chieuCao^2)
+function getBMI(height, mass) {
+  return mass / (height * height); // return mass/(height^2)
 }
 
-function tinhmarkHigherBMI(data) {
-    var Mark = tinhBMI(data.Mark.chieuCao, data.Mark.khoiLuong)
-    var John = tinhBMI(data.John.chieuCao, data.John.khoiLuong)
-    return Mark > John //  Mark có chỉ số BMI cao hơn John hay không.
-}
-var markHigherBMI = tinhmarkHigherBMI(data[0]);
-console.log(markHigherBMI)
-markHigherBMI = tinhmarkHigherBMI(data[1]);
-console.log(markHigherBMI)
+//§ Data 1: Marks height 78 kg and is 1.69 m tall. John height 92 kg and is 1.95 m tall.
+var markHigherBMI =
+  getBMI(data[0].Mark.height, data[0].Mark.mass) >
+  getBMI(data[0].John.height, data[0].John.mass);
+console.log(markHigherBMI);
 
-////////////////////////////////////////////////
-// CAU2
-console.log("Thử thách viết mã số 2")
-data.forEach((value) => {
-    tinhmarkHigherBMI(value) ? console.log("Chỉ số BMI của Mark cao hơn John!") : console.log("Chỉ số BMI của John cao hơn Mark!")
-})
+//§ Data 2: Marks height 95 kg and is 1.88 m tall. John height 85 kg and is 1.76 m tall
+markHigherBMI =
+  getBMI(data[1].Mark.height, data[1].Mark.mass) >
+  getBMI(data[1].John.height, data[1].John.mass);
+console.log(markHigherBMI);
