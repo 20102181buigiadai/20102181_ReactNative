@@ -17,10 +17,17 @@ function calculateTip (bill) {
 }
 
 // Kiểm tra từng giá trị hóa đơn
+var i = 1
 billValues.forEach(function (bill) {
   var tip = calculateTip(bill)
   var totalValue = bill + tip
   console.log(
-    `The bill was ${bill}, the tip was ${tip}, and the total value ${totalValue}`
+    'The bil ' +
+      i +
+      ': was '+bill+', the tip was ' +
+      tip +
+      ', and the total value ' +
+      totalValue
   )
+  i++
 })
